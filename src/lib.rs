@@ -159,7 +159,7 @@ impl Renderer {
         let mut vertex_offset = 0;
         let mut index_offset = 0;
         let mut last_tex = TextureId::from(FONT_TEX_ID);
-        assert!(self.device.SetTexture(0, self.font_tex.as_raw()));
+        assert!(0 == self.device.SetTexture(0, self.font_tex.as_raw()));
         for draw_list in draw_data.draw_lists() {
             for cmd in draw_list.commands() {
                 match cmd {
@@ -186,8 +186,8 @@ impl Renderer {
                             right: ((clip_rect[2] - clip_off[0]) * clip_scale[0]) as i32,
                             bottom: ((clip_rect[3] - clip_off[1]) * clip_scale[1]) as i32,
                         };
-                        assert!(self.device.SetScissorRect(&r));
-                        assert!(self.device.DrawIndexedPrimitive(
+                        assert!(0 == self.device.SetScissorRect(&r));
+                        assert!(0 == self.device.DrawIndexedPrimitive(
                             D3DPT_TRIANGLELIST,
                             vertex_offset as i32,
                             0,
@@ -329,9 +329,9 @@ impl Renderer {
         }
         vb.Unlock();
         ib.Unlock();
-        assert!(self.device.SetStreamSource(0, vb, 0, mem::size_of::<CustomVertex>() as u32));
-        assert!(self.device.SetIndices(ib));
-        assert!(self.device.SetFVF(D3DFVF_CUSTOMVERTEX));
+        assert!(0 == self.device.SetStreamSource(0, vb, 0, mem::size_of::<CustomVertex>() as u32));
+        assert!(0 == self.device.SetIndices(ib));
+        assert!(0 == self.device.SetFVF(D3DFVF_CUSTOMVERTEX));
         Ok(())
     }
 
