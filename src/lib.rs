@@ -222,7 +222,7 @@ impl Renderer {
         };
 
         let device = &*self.device;
-        device.SetViewport(&vp);
+//         device.SetViewport(&vp);
         device.SetPixelShader(ptr::null_mut());
         device.SetVertexShader(ptr::null_mut());
         device.SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
