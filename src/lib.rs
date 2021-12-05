@@ -225,6 +225,10 @@ impl Renderer {
         device.SetViewport(&vp);
         device.SetPixelShader(ptr::null_mut());
         device.SetVertexShader(ptr::null_mut());
+        device.SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+        device.SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
+        device.SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+        device.SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
         device.SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
         device.SetRenderState(D3DRS_LIGHTING, FALSE);
         device.SetRenderState(D3DRS_ZENABLE, FALSE);
@@ -236,6 +240,10 @@ impl Renderer {
         device.SetRenderState(D3DRS_SCISSORTESTENABLE, TRUE);
         device.SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
         device.SetRenderState(D3DRS_FOGENABLE, FALSE);
+        device.SetRenderState(D3DRS_RANGEFOGENABLE, FALSE);
+        device.SetRenderState(D3DRS_SPECULARENABLE, FALSE);
+        device.SetRenderState(D3DRS_STENCILENABLE, FALSE);
+        device.SetRenderState(D3DRS_CLIPPING, TRUE);
         device.SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
         device.SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
         device.SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
