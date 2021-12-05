@@ -252,8 +252,8 @@ impl Renderer {
         device.SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_DIFFUSE);
         device.SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
         device.SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-        device->SetTextureStageState(1, D3DTSS_COLOROP, D3DTOP_DISABLE);
-        device->SetTextureStageState(1, D3DTSS_ALPHAOP, D3DTOP_DISABLE);
+        device.SetTextureStageState(1, D3DTSS_COLOROP, D3DTOP_DISABLE);
+        device.SetTextureStageState(1, D3DTSS_ALPHAOP, D3DTOP_DISABLE);
 
         let l = draw_data.display_pos[0] + 0.5;
         let r = draw_data.display_pos[0] + draw_data.display_size[0] + 0.5;
