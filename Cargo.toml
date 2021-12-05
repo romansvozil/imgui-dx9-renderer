@@ -1,3 +1,4 @@
+cargo-features = ["edition2021"]
 [package]
 name = "imgui-dx9-renderer"
 version = "0.8.0"
