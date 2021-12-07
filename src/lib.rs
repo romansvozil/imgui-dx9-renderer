@@ -419,7 +419,7 @@ impl StateBackup {
     unsafe fn backup(device: &ComPtr<IDirect3DDevice9>) -> Result<Self> {
         com_ptr_from_fn(|state_block| {
             assert!(0 == device.CreateStateBlock(D3DSBT_ALL, state_block));
-            assert!(0 == unsafe { (**state_block).Capture() });
+            // assert!(0 == unsafe { (**state_block).Capture() });
             0
         }).map(StateBackup)
     }
