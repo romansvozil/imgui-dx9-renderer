@@ -417,10 +417,11 @@ struct StateBackup(ComPtr<IDirect3DStateBlock9>);
 
 impl StateBackup {
     unsafe fn backup(device: &ComPtr<IDirect3DDevice9>) -> Result<Self> {
-        let res = com_ptr_from_fn(|state_block| device.CreateStateBlock(D3DSBT_ALL, state_block))
-            .map(StateBackup);
-        assert!(0 == res.Capture());
-        res
+        com_ptr_from_fn(|state_block| {
+            assert!(0 == device.CreateStateBlock(D3DSBT_ALL, state_block));
+            assert!(0 == unsafe { (**state_block).Capture() });
+            0
+        }).map(StateBackup)
     }
 }
 
